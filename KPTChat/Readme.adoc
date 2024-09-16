@@ -1,0 +1,12 @@
+= Wir erstellen einen ChatGPT-Klon von Grund auf, in Kotlin
+
+== JUG Darmstadt - Michal Harakal, Alexander von Below, Falk Sippach
+
+*Javaland 2024*
+
+image:https://www.javaland.eu/fileadmin/Event/JavaLand/Banner/2024/JavaLand_2024-Banner-512x256-Ich_bin_dabei.jpg[JavaLand 2024,link=https://meine.doag.org/events/javaland/2024/agenda/#agendaId.4078]
+
+*Community activity workshop*
+
+Für Unterlagen, Vorbereitung uns Setup folgen sie Webseite mit
+https://michalharakal.github.io/KPTChat/kgpt/index.html[Workshop Unterlagen]

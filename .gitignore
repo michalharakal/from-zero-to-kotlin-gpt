@@ -1,0 +1,23 @@
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+## antora
+_public
+.cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+full_gpt_model_parameters.json
+input_for_embedding.json

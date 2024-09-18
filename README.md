@@ -10,7 +10,7 @@ https://rheinwerk-kkon.de/programm/harakal-mit-kotlin-ein-eigenes-gpt-modell-bau
 
 ```bash
 cd KPTChat
-./gradlew clean publishMavenLocal
+./gradlew clean publishToMavenLocal
 ```
 
 ### JVM Desktop App

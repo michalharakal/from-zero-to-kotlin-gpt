@@ -18,6 +18,7 @@ kotlinx-coroutines = "1.8.1"
 ktor = "2.3.12"
 logback = "1.5.7"
 nexus-publish = "2.0.0"
+picnic = "0.7.0"
 
 [libraries]
 nexus-publish = { module = "io.github.gradle-nexus.publish-plugin:io.github.gradle-nexus.publish-plugin.gradle.plugin", version.ref = "nexus-publish" }
@@ -38,6 +39,7 @@ logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
 ktor-server-tests = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktor" }
+picnic = { module = "com.jakewharton.picnic:picnic", version.ref = "picnic" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

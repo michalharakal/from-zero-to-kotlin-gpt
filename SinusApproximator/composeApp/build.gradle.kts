@@ -21,6 +21,24 @@ kotlin {
     }
     
     jvm("desktop")
+
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        moduleName = "composeApp"
+        browser {
+            val projectDirPath = project.projectDir.path
+            commonWebpackConfig {
+                outputFileName = "composeApp.js"
+                devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
+                    static = (static ?: mutableListOf()).apply {
+                        // Serve sources to debug inside browser
+                        add(projectDirPath)
+                    }
+                }
+            }
+        }
+        binaries.executable()
+    }
     
     sourceSets {
         val desktopMain by getting
@@ -45,8 +63,8 @@ kotlin {
             implementation(libs.kotlinx.coroutines.swing)
 
             // dependencies from maven local repository
-            implementation("sk.ai.net:core:0.0.1")
-            implementation("sk.ai.net:reflection:0.0.1")
+           // implementation("sk.ai.net:core:0.0.2")
+            //implementation("sk.ai.net:reflection:0.0.1")
 
         }
     }

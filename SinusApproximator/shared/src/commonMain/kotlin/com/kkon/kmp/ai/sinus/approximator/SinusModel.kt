@@ -4,13 +4,13 @@ import de.jugda.knanogpt.core.tensor.Tensor
 import jp.co.qoncept.tensorkotlin.Shape
 import org.skainet.activations.relu
 import org.skainet.dsl.network
+import org.skainet.nn.Module
 import org.skainet.nn.NamedParameter
 
 interface SinusCalculator {
     fun calculate(x: Double): Double
     fun loadModel()
 }
-
 
 
 class SineNN(override val name: String = "sin") : Module() {

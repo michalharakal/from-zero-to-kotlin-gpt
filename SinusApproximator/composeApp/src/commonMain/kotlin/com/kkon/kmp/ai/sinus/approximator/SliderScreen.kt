@@ -3,7 +3,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.kkon.kmp.ai.sinus.approximator.getSinusCalculator
+import com.kkon.kmp.ai.sinus.approximator.ASinusCalculator
 import kotlin.math.PI
 import kotlin.math.sin
 
@@ -12,7 +12,7 @@ fun SinusSliderScreen() {
     // State für den Sliderwert (0 bis PI/2)
     var sliderValue by remember { mutableStateOf(0f) }
 
-    var calculator by remember { mutableStateOf(getSinusCalculator()) }
+    var calculator by remember { mutableStateOf(ASinusCalculator()) }
 
     // State für die Modellberechnung und ob das Modell geladen wurde
     var isModelLoaded by remember { mutableStateOf(false) }
@@ -39,17 +39,17 @@ fun SinusSliderScreen() {
 
         // Anzeigen des aktuellen Sliderwertes und des berechneten Sinuswertes
         Text(
-            text = "Winkel: %.2f rad".format(sliderValue),
+            text = "Winkel: $sinusValue",
             style = MaterialTheme.typography.h6,
             modifier = Modifier.padding(top = 16.dp)
         )
         Text(
-            text = "Sinus: %.4f".format(sinusValue),
+            text = "Sinus:$sliderValue",
             style = MaterialTheme.typography.h4,
             modifier = Modifier.padding(top = 16.dp)
         )
         Text(
-            text = "Model Sinus: %.4f".format(modelSinusValue),
+            text = "Model Sinus: $modelSinusValue",
             style = MaterialTheme.typography.h5,
             modifier = Modifier.padding(top = 16.dp)
         )

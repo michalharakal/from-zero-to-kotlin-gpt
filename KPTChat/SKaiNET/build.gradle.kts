@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+//import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -24,7 +24,8 @@ kotlin {
     iosSimulatorArm64()
     linuxX64()
 
-    @OptIn(ExperimentalWasmDsl::class)
+
+    //@OptIn(ExperimentalWasmDsl::class)
     wasmJs().nodejs()
 
     sourceSets {

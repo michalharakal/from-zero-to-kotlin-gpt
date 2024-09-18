@@ -10,7 +10,6 @@ group = "sk.ai.net"
 version = "0.0.2"
 
 kotlin {
-    targetHierarchy.default()
     jvm()
     androidTarget {
         publishLibraryVariants("release")

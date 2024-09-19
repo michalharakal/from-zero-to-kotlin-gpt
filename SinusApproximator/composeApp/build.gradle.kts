@@ -104,10 +104,6 @@ android {
     }
     dependencies {
         debugImplementation(compose.uiTooling)
-
-        implementation("sk.ai.net:core:0.0.1")
-        implementation("sk.ai.net:reflection:0.0.1")
-
     }
 }
 

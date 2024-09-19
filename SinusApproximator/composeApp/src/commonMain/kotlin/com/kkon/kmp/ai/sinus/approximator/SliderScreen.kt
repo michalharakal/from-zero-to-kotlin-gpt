@@ -39,12 +39,12 @@ fun SinusSliderScreen() {
 
         // Anzeigen des aktuellen Sliderwertes und des berechneten Sinuswertes
         Text(
-            text = "Winkel: $sinusValue",
+            text = "Winkel: $sliderValue",
             style = MaterialTheme.typography.h6,
             modifier = Modifier.padding(top = 16.dp)
         )
         Text(
-            text = "Sinus:$sliderValue",
+            text = "Sinus: $sinusValue",
             style = MaterialTheme.typography.h4,
             modifier = Modifier.padding(top = 16.dp)
         )

@@ -4,6 +4,8 @@ import SinusApproximatorKit
 struct ContentView: View {
     @State var radians = 0.0
     @State private var showContent = false
+    let sineCalc = ASinusCalculator()
+    
     var body: some View {
         VStack {
             VStack {
@@ -13,11 +15,13 @@ struct ContentView: View {
                 Text("Winkel: \(radians, format: .number.precision(.fractionLength(2))) rad")
             }
             .padding()
-            Text("Sinus: \(sin(radians), format: .number.precision(.fractionLength(4)))")
+            let sin = sin(radians)
+            Text("Sinus: \(sin, format: .number.precision(.fractionLength(4)))")
                 .font(.title)
-            Text("Model Sinus: \(0.0, format: .number.precision(.fractionLength(4)))")
+            let modelSin = sineCalc.calculate(x: radians)
+            Text("Model Sinus: \(modelSin, format: .number.precision(.fractionLength(4)))")
             Button("Modell Laden") {
-                
+                sineCalc.loadModel()
             }
             .padding()
           }

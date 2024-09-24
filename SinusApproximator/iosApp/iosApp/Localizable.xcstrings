@@ -1,0 +1,32 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Model Sinus: %@" : {
+
+    },
+    "Modell Laden" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Load Model"
+          }
+        }
+      }
+    },
+    "Sinus: %@" : {
+
+    },
+    "Winkel: %@ rad" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Angle: %@ rad"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

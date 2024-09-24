@@ -4,5 +4,5 @@
 
 [source, shell]
 ----
-./gradlew clean publishMavenLocal
+./gradlew clean publishToMavenLocal
 ----

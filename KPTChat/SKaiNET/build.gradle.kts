@@ -1,44 +1,51 @@
+//import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+
 plugins {
-    kotlin("jvm")
-    id("maven-publish")
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.androidLibrary)
+    id("module.publication")
 }
 
 group = "sk.ai.net"
-version = "0.0.1"
+version = "0.0.2"
 
-repositories {
-    mavenCentral()
-
-}
-
-dependencies {
-
-
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
-    testImplementation("junit:junit:4.13.2")
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
 kotlin {
-    jvmToolchain(8)
-}
-
-publishing {
-    publications {
-        // Create a publication named 'myLibrary'
-        create("skainet", MavenPublication::class) {
-            // Set the artifact ID
-            artifactId = "core"
-
-            // Include components from the 'java' plugin
-            from(components["java"])
+    jvm()
+    androidTarget {
+        publishLibraryVariants("release")
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "1.8"
+            }
         }
     }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+    linuxX64()
 
-    repositories {
-        // Publish to the local Maven repository
-        mavenLocal()
+
+    //@OptIn(ExperimentalWasmDsl::class)
+    wasmJs().nodejs()
+
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                //put your multiplatform dependencies here
+            }
+        }
+        val commonTest by getting {
+            dependencies {
+                implementation(libs.kotlin.test)
+            }
+        }
+    }
+}
+
+android {
+    namespace = "sk.ai.net.core"
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    defaultConfig {
+        minSdk = libs.versions.android.minSdk.get().toInt()
     }
 }

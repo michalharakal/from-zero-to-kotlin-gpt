@@ -17,16 +17,36 @@ kotlin {
         }
     }
 
+
     jvm()
+
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        moduleName = "composeApp"
+        browser {
+            val projectDirPath = project.projectDir.path
+            commonWebpackConfig {
+                outputFileName = "composeApp.js"
+                devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
+                    static = (static ?: mutableListOf()).apply {
+                        // Serve sources to debug inside browser
+                        add(projectDirPath)
+                    }
+                }
+            }
+        }
+        binaries.executable()
+    }
     
     sourceSets {
         commonMain.dependencies {
+            implementation("sk.ai.net:SKaiNET:0.0.2")
         }
     }
 }
 
 android {
-    namespace = "com.kkon.kmp.ai.sinus.approximator.shared"
+    namespace = "sk.ai.net.client.shared"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -36,3 +56,4 @@ android {
         minSdk = libs.versions.android.minSdk.get().toInt()
     }
 }
+

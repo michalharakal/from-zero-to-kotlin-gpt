@@ -34,3 +34,4 @@ rootProject.name = "KPTChat"
 include("SKaiNET")
 include("SKaiNET-reflection")
 include("SKaiNET-jupyter")
+include("transformers")

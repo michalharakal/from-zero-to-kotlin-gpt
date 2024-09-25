@@ -1,11 +1,12 @@
 package de.jugda
 
 import de.jugda.knanogpt.core.data.BatchProvider
-import de.jugda.knanogpt.core.data.ResourcesDataProvider
+//import de.jugda.knanogpt.core.data.ResourcesDataProvider
 import de.jugda.knanogpt.core.tensor.TrainTestSplitter
 
 
 fun main() {
+    /*
     // Step 1. Import ..
 
     // Step 2. Initialisierung-Block
@@ -48,5 +49,7 @@ fun main() {
             println("when input is $context the target: $target")
         }
     }
+
+     */
 }
 

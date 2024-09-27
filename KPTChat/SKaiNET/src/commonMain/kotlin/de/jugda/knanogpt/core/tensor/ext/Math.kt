@@ -84,5 +84,30 @@ private fun ravelIndex(indices: IntArray, dimensions: IntArray, strides: IntArra
 
 fun Tensor.prod(): Double = this.elements.fold(1.0) { acc, element -> acc * element }
 
+fun Tensor.mean(dim: Int, keepDim: Boolean): Tensor {
+    TODO("Not yet implemented")
+}
+
+fun Tensor.variance(dim: Int, keepDim: Boolean): Tensor {
+    TODO("Not yet implemented")
+}
+
+fun Tensor.abs(): Tensor {
+    TODO("Not yet implemented")
+}
+
+fun Tensor.max(dim: Int, keepDim: Boolean): Tensor {
+    TODO("Not yet implemented")
+}
+
+fun Tensor.clamp(min: Double): Tensor {
+    TODO("Not yet implemented")
+}
+
+
+
+
+
+
 
 

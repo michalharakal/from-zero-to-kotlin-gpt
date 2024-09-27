@@ -252,6 +252,7 @@ data class Tensor(val shape: Shape, val elements: DoubleArray) {
         result = 31 * result + elements.contentHashCode()
         return result
     }
+
 }
 
 operator fun Double.times(tensor: Tensor): Tensor {

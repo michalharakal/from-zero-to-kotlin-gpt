@@ -15,7 +15,7 @@ kotlin {
             dependencies {
                 implementation(project(":SKaiNET"))
                 implementation(project(":SKaiNET-reflection"))
-
+                implementation(libs.kraphviz)
             }
         }
         val commonTest by getting {

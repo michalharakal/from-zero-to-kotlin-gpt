@@ -15,12 +15,14 @@ compose-plugin = "1.6.11"
 junit = "4.13.2"
 kotlin = "2.0.20"
 kotlinx-coroutines = "1.8.1"
+kraphviz = "1.0.0"
 ktor = "2.3.12"
 logback = "1.5.7"
 nexus-publish = "2.0.0"
 picnic = "0.7.0"
 
 [libraries]
+kraphviz = { module = "com.github.yeicor:kraphviz", version.ref = "kraphviz" }
 nexus-publish = { module = "io.github.gradle-nexus.publish-plugin:io.github.gradle-nexus.publish-plugin.gradle.plugin", version.ref = "nexus-publish" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }

@@ -27,6 +27,7 @@ dependencyResolutionManagement {
             }
         }
         mavenCentral()
+        maven("https://repsy.io/mvn/yeicor/github-public")
     }
 }
 

@@ -1,8 +1,8 @@
 # from-zero-to-kotlin-gpt
 
-This repository contains code and slides to my talk at JAX London 2024
+This repository contains code and slides to my talk at Kotlin User Group Munich, 11/2024
 
-* [From Zero to Kotlin GPT in 45 Minutes](https://jaxlondon.com/data-machine-learning/building-kotlin-gpt-model)
+* [Kotlin Meetup November Edition](https://www.meetup.com/de-DE/kotlin-user-group-munich/events/304290138/)
 
 ## Building and running
 

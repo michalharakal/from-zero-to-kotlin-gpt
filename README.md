@@ -1,9 +1,8 @@
 # from-zero-to-kotlin-gpt
 
-This repository contains code and slides to my talks about implementing a simple generative pre-tained transformers model
+This repository contains code and slides to my talk at JAX London 2024
 
-* https://javaforumnord.de/2024/programm/
-* [https://javaforumnord.de/2024/programm/](https://rheinwerk-kkon.de/programm/harakal-mit-kotlin-ein-eigenes-gpt-modell-bauen/)
+* [From Zero to Kotlin GPT in 45 Minutes](https://jaxlondon.com/data-machine-learning/building-kotlin-gpt-model)
 
 ## Building and running
 
@@ -20,4 +19,3 @@ cd KPTChat
 cd SinusApproximator
 ./gradlew clean composeApp:run
 ```
-

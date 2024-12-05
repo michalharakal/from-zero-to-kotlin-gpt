@@ -5,6 +5,8 @@ import de.jugda.knanogpt.core.tensor.Tensor
 import org.skainet.nn.Input
 import org.skainet.Dense
 import org.skainet.activations.ActivationsWrapperModule
+import org.skainet.init.Initializer
+import org.skainet.nn.ConvPadding
 import org.skainet.topologies.FeedForwardNetwork
 import org.skainet.nn.Module
 
@@ -24,6 +26,24 @@ interface NetworkDslItem
 interface NeuralNetworkDsl : NetworkDslItem {
     fun input(inputSize: Int, id: String = "")
 
+    fun input(vararg dimensions: Long, id: String = "")
+
+    fun conv2D(
+        filters: Int,
+        kernelSize: IntArray,
+        strides: IntArray,
+        content: CONV2D.() -> Unit = {}
+    )
+
+    fun avgPool2D(
+        poolSize: IntArray,
+        strides: IntArray,
+        padding: ConvPadding
+    )
+
+    fun flatten()
+
+
     fun dense(outputDimension: Int, id: String = "", content: DENSE.() -> Unit = {})
 
     fun embedding(numEmbeddings: Int, embeddingDim: Int, id: String = "")
@@ -34,8 +54,20 @@ interface NeuralNetworkDsl : NetworkDslItem {
 @NetworkDsl
 interface DENSE : NetworkDslItem {
     var activation: (Tensor) -> Tensor
+
     fun weights(initBlock: (Shape) -> Tensor)
     fun bias(initBlock: (Shape) -> Tensor)
+}
+
+
+@NetworkDsl
+interface CONV2D : NetworkDslItem {
+    var activation: (Tensor) -> Tensor
+    var kernelInitializer: Initializer
+    var biasInitializer: Initializer
+    var padding: ConvPadding
+
+
 }
 
 private fun getDefaultName(id: String, s: String, size: Int): String {
@@ -76,12 +108,21 @@ class DenseImpl(
 private class NeuralNetworkDslImpl : NeuralNetworkDsl {
 
     val modules = mutableListOf<Module>()
-    var lastDimension = 0
+    var lastDimension = 0L
 
     fun create() = NetworkBuilder().add(*modules.toTypedArray()).build()
     override fun input(inputSize: Int, id: String) {
-        lastDimension = inputSize
+        lastDimension = inputSize.toLong()
         modules.add(Input(Shape(inputSize), name = getDefaultName(id, "Input", modules.size)))
+    }
+
+    override fun input(vararg dimensions: Long, id: String) {
+        lastDimension = dimensions.toTypedArray()[0]
+        modules.add(Input(Shape(dimensions.toTypedArray()), name = getDefaultName(id, "Input", modules.size)))
+    }
+
+    override fun conv2D(filters: Int, kernelSize: IntArray, strides: IntArray, content: CONV2D.() -> Unit) {
+        TODO("Not yet implemented")
     }
 
     override fun dense(outputDimension: Int, id: String, content: DENSE.() -> Unit) {

@@ -1,28 +1,50 @@
 plugins {
-    kotlin("jvm")
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.androidLibrary)
 }
 
-group = "de.jugda"
-version = "1.0-SNAPSHOT"
+group = "sk.ai.net"
+version = "0.0.2"
 
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation(project(":SKaiNET"))
-    implementation(project(":SKaiNET-reflection"))
-    implementation(project(":SKaiNET-io"))
-
-    implementation(project(":SKaiNET-processor"))
-
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
-    testImplementation("junit:junit:4.13.2")
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
 kotlin {
-    jvmToolchain(17)
+    jvm()
+
+    androidTarget {
+        publishLibraryVariants("release")
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "1.8"
+            }
+        }
+    }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+    linuxX64()
+
+
+    //@OptIn(ExperimentalWasmDsl::class)
+    wasmJs().nodejs()
+
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation(project(":SKaiNET"))
+                implementation(project(":SKaiNET-reflection"))
+            }
+        }
+        val commonTest by getting {
+            dependencies {
+                implementation(libs.kotlin.test)
+            }
+        }
+    }
+}
+
+android {
+    namespace = "sk.ai.net.transformers"
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    defaultConfig {
+        minSdk = libs.versions.android.minSdk.get().toInt()
+    }
 }
